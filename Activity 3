@@ -1,0 +1,131 @@
+1)	Bubble Sort 
+#include <stdio.h>
+void swap(int *a, int *b)
+{
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main()
+{
+    int array[6];
+    int i, j;
+    printf("Enter Array Elements:\n");
+    for(i = 0; i < 6; i++)
+    {
+        scanf("%d", &array[i]);
+    }
+    for(i = 0; i < 5; i++)
+    {
+        for(j = 0; j < 5 - i; j++)
+        {
+            if(array[j] > array[j + 1])
+            {
+                swap(&array[j], &array[j + 1]);
+            }
+        }
+    }
+    printf("Sorted Array:\n");
+    for(i = 0; i < 6; i++)
+    {
+        printf("%d ", array[i]);
+    }
+ 
+
+
+
+2)	Selection Sort 
+#include <stdio.h>
+
+void selectionSort(int arr[], int n)
+{
+    int i, j, min, temp;
+
+    for (i = 0; i < n - 1; i++)
+    {
+        min = i;
+        for (j = i + 1; j < n; j++)
+        {
+            if (arr[j] < arr[min])
+            {
+                min = j;
+            }
+        }
+
+        temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
+    }
+}
+
+void display(int arr[], int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+}
+
+int main()
+{
+    int arr[] = {6, 35, 12, 20, 16};
+    int n = 5;
+
+    selectionSort(arr, n);
+
+    printf("Sorted Array: ");
+    display(arr, n);
+
+Return 0; 
+}
+ 
+
+3)	Insertion Sort
+
+#include<stdio.h>
+
+void insertionsort(int arr[],int n){
+    int i,key,j;
+    for(i=1;i<n;i++)
+    {
+        key = arr[i];
+        j = i-1;
+
+        while(j>=0 && arr[j]>key)
+        {arr[j+1] = arr[j];
+        j = j-1;
+
+        }
+        arr[j+1]=key;
+    }
+
+}
+
+void display(int arr[],int n){
+    int i;
+    for(i=0;i<n;i++){
+        printf(" %d ",arr[i]);
+    }
+}
+
+int main()
+{
+    int n,i;
+    int arr[n],k;
+    printf("Enter the size of array : ");
+    scanf("%d",&n);
+
+    printf("Enter Unsorted array : ");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+
+    insertionsort(arr,n);
+    printf("sorted array is : ");
+    display(arr,n);
+ 
+    return 0;
+}
